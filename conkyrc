@@ -1,0 +1,20 @@
+# ~/.conkyrc
+# Thayer Williams - http://cinderwick.ca
+background no
+out_to_x no
+out_to_console yes
+update_interval 1
+total_run_times 0
+use_spacer none
+
+TEXT
+^fg(\#9C6696)^i(/home/$USER/.dzen/xbm8x8/fox.xbm)^fg() \
+^fg(\#D688A0)${time %d %H%M}^fg() \
+^ca(1,kdesu /usr/bin/sakis3g --interactive)${if_empty ${exec ifconfig ppp0 | grep 'inet addr:'}}^fg(\#bbbbbb)^fg()^fg(\#d94c3d)${upspeedf ppp0}^fg() ^fg(\#a4bc51)${downspeedf ppp0}^fg()${else}\
+^fg(\#ffffff)^fg()^fg(\#d94c3d)${upspeedf enp2s0}^fg()^fg(\#a4bc51)${downspeedf enp2s0}^fg()^(fg)${endif}^ca() \
+^fg(\#AFAFB2)${mem}^fg() \
+^fg(\#AA645E)${cpu cpu1}^fg()\
+^fg(\#86773E)${cpu cpu2}^fg()\
+^fg(\#488559)${cpu cpu3}^fg()\
+^fg(\#008693)${cpu cpu4}^fg() \
+^fg(\#ffffff)${if_mpd_playing}^i(/home/$USER/.dzen/play.xbm) ^fg()^ca(1,mpc toggle)^ca(5,mpc next)^ca(4,mpc prev)${mpd_title}${endif}^ca(1,mpc toggle)^ca(5,mpc next)^ca(4,mpc prev)^ca()^ca()^ca()^ca()^ca()^ca()
