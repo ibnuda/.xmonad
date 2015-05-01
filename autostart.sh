@@ -1,6 +1,7 @@
 #!/bin/bash
 xrdb ~/.Xresources
-feh --bg-fill /home/$USER/.xmonad/bg/awan.jpg &
+#feh --bg-fill /home/$USER/.xmonad/bg/awan.jpg &
+feh --bg-fill /home/mel/Pictures/background/chloe.jpg &
 xsetroot -cursor_name left_ptr &
 udiskie &
 urxvtd &

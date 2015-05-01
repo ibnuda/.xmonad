@@ -88,7 +88,7 @@ myDzenPP = dzenPP
     }
 
 dzenMenu        = "(zsh ~/.xmonad/menu.sh) | (dzen2 -w '80' -y '740' " ++ konfigurasiDzen ++ eksekusiMenu
-eksekusiMenu    = " -m -p -l 6  -e 'button3=togglecollapse;leaveslave=collapse;button1=menuexec')"
+eksekusiMenu    = " -m -p -l 7  -e 'button3=togglecollapse;leaveslave=collapse;button1=menuexec')"
 dzenTitleBar    = "dzen2 -x '80' -y '740' -w '700' "++ konfigurasiDzen
 dzenConky       = "conky -c ~/.xmonad/conkyrc | dzen2 -x '780' -y '740' -w '586' " ++ konfigurasiDzen
 konfigurasiDzen = "-ta 'l' -h '28' -fg '#9f9fa2' -bg '#2b2b28' -fn '" ++ fontDzen ++ "'"

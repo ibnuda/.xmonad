@@ -4,4 +4,5 @@
 ^fg(#ffffff)^i(/home/$USER/.dzen/code.xbm)^fg()^fg(#ffffff)qvim^pa(80)\n\
 ^fg(#ffffff)^i(/home/$USER/.dzen/media.xbm)^fg()^fg(#ffffff)vlc^pa(80)\n\
 ^fg(#ffffff)^i(/home/$USER/.dzen/lan.xbm)^fg()^fg(#ffffff)hexchat^pa(80)\n\
+^fg(#ffffff)^i(/home/$USER/.dzen/doc.xbm)^fg()^fg(#ffffff)qpdfview^pa(80)\n\
 ^fg(#ffffff)^i(/home/$USER/.dzen/term.xbm)^fg()^fg(#ffffff)urxvtc^pa(80) ")
