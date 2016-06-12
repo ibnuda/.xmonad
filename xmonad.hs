@@ -53,7 +53,7 @@ myLayout = avoidStruts $ smartBorders ( layarPenuh ||| kiriKanan ||| atasBawah |
   where
     ikan       = named " <>< "  $ simpleFloat
     kiriKanan  = named " ||| "  $ Tall 1 (3/100) (5/9)
-    atasBawah  = named " === "  $ Mirror kiriKanan 
+    atasBawah  = named " === "  $ Mirror kiriKanan
     layarPenuh = named " [ ] "  $ Full
     siklik     = named " +++ "  $ Circle
 
@@ -65,12 +65,12 @@ myXPConfig =
                     , bgHLight  = "#FFFFFF"
                     , fgHLight  = "#000000"
                     , promptBorderWidth = 0
-                    , height    = 16
+                    , height    = 50
                     }
 
 myManageHook = composeAll
-    [ className =? "mpv" --> doFloat              
-    , className =? "MPV" --> doFloat              
+    [ className =? "mpv" --> doFloat
+    , className =? "MPV" --> doFloat
     , className =? "feh" --> doFloat
     ]
 
@@ -87,12 +87,12 @@ myDzenPP = dzenPP
                             . wrap "^ca(1,xdotool key super+j)^ca(3,xdotool key super+k)^ca(5, xdotool key super+shift+j)^ca(4, xdotool key super+shift+k)" "^ca()^ca()^ca()^ca()" . shorten 100 . dzenEscape
     }
 
-dzenMenu        = "(zsh ~/.xmonad/menu.sh) | (dzen2 -w '80' -y '740' " ++ konfigurasiDzen ++ eksekusiMenu
+dzenMenu        = "(zsh ~/.xmonad/menu.sh) | (dzen2 -w '100' -y '1150' " ++ konfigurasiDzen ++ eksekusiMenu
 eksekusiMenu    = " -m -p -l 7  -e 'button3=togglecollapse;leaveslave=collapse;button1=menuexec')"
-dzenTitleBar    = "dzen2 -x '80' -y '740' -w '700' "++ konfigurasiDzen
-dzenConky       = "conky -c ~/.xmonad/conkyrc | dzen2 -x '780' -y '740' -w '586' " ++ konfigurasiDzen
-konfigurasiDzen = "-ta 'l' -h '28' -fg '#9f9fa2' -bg '#2b2b28' -fn '" ++ fontDzen ++ "'"
-fontDzen        = "-*-source code pro-medium-r-normal-*-18-*-*-*-*-*-*-*"
+dzenTitleBar    = "dzen2 -x '100' -y '1150' -w '1300' "++ konfigurasiDzen
+dzenConky       = "conky -c ~/.xmonad/conkyrc | dzen2 -x '1400' -y '1150' -w '520' " ++ konfigurasiDzen
+konfigurasiDzen = "-ta 'l' -h '50' -fg '#9f9fa2' -bg '#2b2b28' -fn '" ++ fontDzen ++ "'"
+fontDzen        = "-*-source code pro-medium-r-normal-*-24-*-*-*-*-*-*-*"
 myKeys conf@(XConfig {XMonad.modMask = mod}) = M.fromList $
     [ ((mod .|. shiftMask       , xK_Return     ), spawn $ XMonad.terminal conf)
     , ((mod .|. shiftMask       , xK_q          ), spawn "killall udiskie ; killall dzen2; killall compton; killall urxvtd" >> io (exitWith ExitSuccess))
