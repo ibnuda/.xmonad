@@ -25,6 +25,7 @@ import XMonad.Util.Run (safeSpawn, runInTerm, spawnPipe, hPutStrLn)
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
+main :: IO ()
 main = do
     simpleMenu <- spawnPipe dzenMenu
     workspaceNTitle <- spawnPipe dzenTitleBar
@@ -68,14 +69,17 @@ myXPConfig =
                     , height    = 50
                     }
 
+-- myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
     [ className =? "mpv" --> doFloat
     , className =? "MPV" --> doFloat
     , className =? "feh" --> doFloat
     ]
 
+myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
 
+myDzenPP :: PP
 myDzenPP = dzenPP
     { ppCurrent         = dzenColor "#00FFFF" ""
     , ppHidden          = dzenColor "#0000FF" ""
@@ -87,12 +91,24 @@ myDzenPP = dzenPP
                             . wrap "^ca(1,xdotool key super+j)^ca(3,xdotool key super+k)^ca(5, xdotool key super+shift+j)^ca(4, xdotool key super+shift+k)" "^ca()^ca()^ca()^ca()" . shorten 100 . dzenEscape
     }
 
+dzenMenu :: [Char]
 dzenMenu        = "(zsh ~/.xmonad/menu.sh) | (dzen2 -w '100' -y '1150' " ++ konfigurasiDzen ++ eksekusiMenu
+
+eksekusiMenu :: [Char]
 eksekusiMenu    = " -m -p -l 7  -e 'button3=togglecollapse;leaveslave=collapse;button1=menuexec')"
+
+dzenTitleBar :: [Char]
 dzenTitleBar    = "dzen2 -x '100' -y '1150' -w '1300' "++ konfigurasiDzen
+
+dzenConky :: [Char]
 dzenConky       = "conky -c ~/.xmonad/conkyrc | dzen2 -x '1400' -y '1150' -w '520' " ++ konfigurasiDzen
+
+konfigurasiDzen :: [Char]
 konfigurasiDzen = "-ta 'l' -h '50' -fg '#9f9fa2' -bg '#2b2b28' -fn '" ++ fontDzen ++ "'"
+
+fontDzen :: [Char]
 fontDzen        = "-*-source code pro-medium-r-normal-*-24-*-*-*-*-*-*-*"
+
 myKeys conf@(XConfig {XMonad.modMask = mod}) = M.fromList $
     [ ((mod .|. shiftMask       , xK_Return     ), spawn $ XMonad.terminal conf)
     , ((mod .|. shiftMask       , xK_q          ), spawn "killall udiskie ; killall dzen2; killall compton; killall urxvtd" >> io (exitWith ExitSuccess))

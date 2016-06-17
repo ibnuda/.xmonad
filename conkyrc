@@ -9,9 +9,9 @@ use_spacer none
 
 TEXT
 ^fg(\#9C6696)^i(/home/$USER/.dzen/xbm8x8/fox.xbm)^fg() \
-^fg(\#D688A0)${time %d %H%M}^fg() \
-^ca(1,kdesu /usr/bin/sakis3g --interactive)${if_empty ${exec ifconfig ppp0 | grep 'inet addr:'}}^fg(\#bbbbbb)^fg()^fg(\#d94c3d)${upspeedf ppp0}^fg() ^fg(\#a4bc51)${downspeedf ppp0}^fg()${else}\
-^fg(\#ffffff)^fg()^fg(\#d94c3d)${upspeedf enp2s0}^fg()^fg(\#a4bc51)${downspeedf enp2s0}^fg()^(fg)${endif}^ca() \
+^fg(\#D688A0)${time %d %H:%M:%S}^fg() \
+^ca(1,kdesu /usr/bin/sakis3g --interactive)${if_empty ${exec ifconfig ppp0 | grep 'inet addr:'}}^fg(\#bbbbbb)^fg()^fg(\#d94c3d)${upspeedf wlp0s29f7u7}^fg() ^fg(\#a4bc51)${downspeedf wlp0s29f7u7}^fg()${else}\
+^fg(\#ffffff)^fg()^fg(\#d94c3d)${upspeedf wlp0s29f7u7}^fg()^fg(\#a4bc51)${downspeedf wlp0s29f7u7}^fg()^(fg)${endif}^ca() \
 ^fg(\#AFAFB2)${mem}^fg() \
 ^fg(\#AA645E)${cpu cpu1}^fg()\
 ^fg(\#86773E)${cpu cpu2}^fg()\
