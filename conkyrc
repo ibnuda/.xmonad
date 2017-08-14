@@ -15,4 +15,6 @@ TEXT
 ^fg(\#AFAFB2)${mem}^fg() \
 ^fg(\#AA645E)${cpu cpu1}^fg()\
 ^fg(\#86773E)${cpu cpu2}^fg()\
+^fg(\#86773E)${cpu cpu3}^fg()\
+^fg(\#86773E)${cpu cpu4}^fg()\
 ^fg(\#ffffff)${if_mpd_playing}^i(/home/$USER/.dzen/play.xbm) ^fg()^ca(1,mpc toggle)^ca(5,mpc next)^ca(4,mpc prev)${mpd_title}${endif}^ca(1,mpc toggle)^ca(5,mpc next)^ca(4,mpc prev)^ca()^ca()^ca()^ca()^ca()^ca()
